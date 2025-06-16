@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hardloopschema Generator</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/index.css" />
   <style>
     body {
-      font-family: 'Inter', sans-serif; /* A nice default sans-serif font */
+      font-family: 'Inter', sans-serif;
     }
-    /* Custom scrollbar for better aesthetics if needed */
+
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -26,13 +27,12 @@
 
     @media print {
       body {
-        font-family: sans-serif; /* Use a common sans-serif for printing */
+        font-family: sans-serif;
         background-color: #fff !important;
       }
       header, footer, form, .no-print, #program-form-container, #action-buttons-container {
         display: none !important;
       }
-      
       #schedule-display-section {
         visibility: visible !important;
         position: absolute !important;
@@ -44,76 +44,69 @@
         box-shadow: none !important;
         border: none !important;
       }
-
       #schedule-display-section *, #schedule-display-section *:before, #schedule-display-section *:after {
         visibility: visible !important;
       }
-      
       .print-container {
-         box-shadow: none !important;
-         border: none !important;
-         padding: 1rem;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 1rem;
       }
-
       h2, h3, h4, p, div {
-        color: #000 !important; /* Ensure text is black */
+        color: #000 !important;
       }
-      
       .bg-white {
         background-color: #fff !important;
         box-shadow: none !important;
-        border: 1px solid #ccc !important; /* Add light border for cards */
+        border: 1px solid #ccc !important;
       }
       .bg-gradient-to-r {
         background-image: none !important;
-        background-color: #eee !important; /* Simple background for week headers */
+        background-color: #eee !important;
         color: #000 !important;
       }
       .text-white {
         color: #000 !important;
       }
-       .text-blue-700 {
+      .text-blue-700 {
         color: #000 !important;
       }
       .text-slate-500, .text-slate-600, .text-slate-700 {
         color: #333 !important;
       }
-
       .shadow-lg, .shadow-md, .shadow-2xl {
         box-shadow: none !important;
       }
-
-      /* Ensure workout cards flow well */
       .grid {
-        display: block !important; /* Stack items for printing */
+        display: block !important;
       }
       .grid > div {
         page-break-inside: avoid;
         margin-bottom: 1rem;
       }
-       /* Hide accordion icon when printing if it's open */
       button > svg {
         display: none !important;
       }
     }
   </style>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "react": "https://esm.sh/react@^19.1.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.5.1",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+
+  <script type="importmap">
+  {
+    "imports": {
+      "react/": "https://esm.sh/react@^19.1.0/",
+      "react": "https://esm.sh/react@^19.1.0",
+      "@google/genai": "https://esm.sh/@google/genai@^1.5.1",
+      "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+    }
   }
-}
-</script>
-<!-- Add Babel Standalone for client-side TSX/JSX transpilation -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<link rel="stylesheet" href="/index.css">
+  </script>
 </head>
+
 <body class="bg-slate-50 text-slate-800">
   <div id="root"></div>
-  <!-- Update script type to text/babel and remove data-type="module" -->
-  <script type="text/babel" src="./index.tsx"></script>
+
+  <!-- Babel + jouw app entrypoint -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" src="./index.jsx"></script>
 </body>
 </html>
