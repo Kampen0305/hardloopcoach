@@ -1,8 +1,15 @@
-const { createRoot } = ReactDOM;
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.js';
 
-const App = () => {
-  return <h1>Hello Edwin!</h1>;
-};
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error('Could not find root element to mount to');
+}
 
-const root = document.getElementById("root");
-createRoot(root).render(<App />);
+const root = ReactDOM.createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

@@ -1,20 +1,14 @@
-
 import React from 'react';
-import { Workout } from '../types';
 
-interface WorkoutCardProps {
-  workout: Workout;
-}
-
-const WorkoutCard: React.FC<WorkoutCardProps> = ({ workout }) => {
-  const getIcon = (workoutType: string) => {
-    if (workoutType.toLowerCase().includes('rust')) return '😴'; // Sleepy face for Rest
-    if (workoutType.toLowerCase().includes('duurloop') || workoutType.toLowerCase().includes('easy run')) return '🏃‍♂️'; // Person running
-    if (workoutType.toLowerCase().includes('interval')) return '⏱️'; // Stopwatch for Interval
-    if (workoutType.toLowerCase().includes('tempo')) return '💨'; // Wind for Tempo
-    if (workoutType.toLowerCase().includes('kracht') || workoutType.toLowerCase().includes('strength')) return '💪'; // Flexed biceps for Strength
-    if (workoutType.toLowerCase().includes('cross')) return '🚲'; // Bicycle for Cross-training (example)
-    return '⚡'; // Generic lightning for other activities
+const WorkoutCard = ({ workout }) => {
+  const getIcon = (workoutType) => {
+    if (workoutType.toLowerCase().includes('rust')) return '😴';
+    if (workoutType.toLowerCase().includes('duurloop') || workoutType.toLowerCase().includes('easy run')) return '🏃‍♂️';
+    if (workoutType.toLowerCase().includes('interval')) return '⏱️';
+    if (workoutType.toLowerCase().includes('tempo')) return '💨';
+    if (workoutType.toLowerCase().includes('kracht') || workoutType.toLowerCase().includes('strength')) return '💪';
+    if (workoutType.toLowerCase().includes('cross')) return '🚲';
+    return '⚡';
   };
 
   return (
@@ -26,7 +20,7 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({ workout }) => {
           <h3 className="text-lg font-bold text-blue-700">{workout.workoutType}</h3>
         </div>
       </div>
-      
+
       {workout.workoutType.toLowerCase() !== 'rust' && workout.workoutType.toLowerCase() !== 'rest' && (
         <div className="space-y-1 text-sm text-slate-600 mb-3">
           {workout.duration && <p><span className="font-semibold">Duur:</span> {workout.duration}</p>}
@@ -40,4 +34,3 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({ workout }) => {
 };
 
 export default WorkoutCard;
-    

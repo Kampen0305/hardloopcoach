@@ -1,7 +1,6 @@
-
 import React from 'react';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <footer className="bg-slate-800 text-slate-300 p-6 mt-12 text-center">
       <div className="container mx-auto">
@@ -13,4 +12,3 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
-    

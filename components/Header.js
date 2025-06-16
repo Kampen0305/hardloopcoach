@@ -1,8 +1,7 @@
-
 import React from 'react';
-import { APP_TITLE } from '../constants.tsx';
+import { APP_TITLE } from '../constants.js';
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <header className="bg-gradient-to-r from-blue-600 to-sky-500 text-white p-6 shadow-lg">
       <div className="container mx-auto flex items-center">
