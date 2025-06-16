@@ -1,16 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+const { createRoot } = ReactDOM;
 
-function App() {
-  return (
-    <div>Hello Edwin!</div>
-  );
-}
+const App = () => {
+  return <div>Hello Edwin!</div>;
+};
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error('Could not find root element to mount to');
 }
 
-ReactDOM.createRoot(rootElement).render(<App />);
-
+createRoot(rootElement).render(<App />);
