@@ -107,14 +107,11 @@
   }
 }
 </script>
-<!-- Add Babel Standalone for client-side TSX/JSX transpilation -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-slate-50 text-slate-800">
   <div id="root"></div>
-  <!-- Update script type to text/babel and remove data-type="module" -->
-  <script type="text/babel" src="./index.tsx"></script>
-<script type="module" src="/index.tsx"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" src="./index.jsx"></script>
 </body>
 </html>
