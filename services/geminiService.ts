@@ -1,5 +1,5 @@
 
-import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 import { RunningLevel, RaceDistance, GeminiTrainingProgramResponse, TrainingProgram } from '../types';
 import { GEMINI_MODEL_TEXT, WEEKS_PER_DISTANCE } from '../constants.tsx'; // Corrected import path
 
@@ -131,7 +131,7 @@ export const generateRunningProgram = async (
 
   try {
     // console.log("Sending prompt to Gemini:", prompt); // Keep for debugging if needed
-    const geminiResponse: GenerateContentResponse = await ai.models.generateContent({
+    const geminiResponse: any = await ai.models.generateContent({
       model: GEMINI_MODEL_TEXT,
       contents: prompt,
       config: {
