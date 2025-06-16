@@ -1,25 +1,19 @@
-
 import React, { useState } from 'react';
-import { RunningLevel, RaceDistance } from '../types';
-import { StravaIcon } from '../constants.tsx'; // Corrected import path
+import { RunningLevel, RaceDistance } from '../types.js';
+import { StravaIcon } from '../constants.js';
 
-interface ProgramFormProps {
-  onSubmit: (level: RunningLevel, distance: RaceDistance, preferredTrainingDays: number) => void;
-  isLoading: boolean;
-}
+const ProgramForm = ({ onSubmit, isLoading }) => {
+  const [level, setLevel] = useState(RunningLevel.BEGINNER);
+  const [distance, setDistance] = useState(RaceDistance.FIVE_K);
+  const [preferredTrainingDays, setPreferredTrainingDays] = useState(4);
 
-const ProgramForm: React.FC<ProgramFormProps> = ({ onSubmit, isLoading }) => {
-  const [level, setLevel] = useState<RunningLevel>(RunningLevel.BEGINNER);
-  const [distance, setDistance] = useState<RaceDistance>(RaceDistance.FIVE_K);
-  const [preferredTrainingDays, setPreferredTrainingDays] = useState<number>(4);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(level, distance, preferredTrainingDays);
   };
 
   const handleStravaClick = () => {
-    alert("Strava-integratie is gepland voor een toekomstige update. Deze knop is momenteel een demo en koppelt nog niet daadwerkelijk met Strava.");
+    alert('Strava-integratie is gepland voor een toekomstige update. Deze knop is momenteel een demo en koppelt nog niet daadwerkelijk met Strava.');
   };
 
   return (
@@ -27,17 +21,15 @@ const ProgramForm: React.FC<ProgramFormProps> = ({ onSubmit, isLoading }) => {
       <div>
         <h2 className="text-2xl font-semibold text-slate-700 mb-6 text-center">Stel jouw hardloopschema samen</h2>
       </div>
-      
+
       <div className="space-y-6">
         <div>
-          <label htmlFor="level" className="block text-sm font-medium text-slate-700 mb-1">
-            Jouw huidige hardloopniveau:
-          </label>
+          <label htmlFor="level" className="block text-sm font-medium text-slate-700 mb-1">Jouw huidige hardloopniveau:</label>
           <select
             id="level"
             name="level"
             value={level}
-            onChange={(e) => setLevel(e.target.value as RunningLevel)}
+            onChange={(e) => setLevel(e.target.value)}
             className="mt-1 block w-full py-3 px-4 border border-slate-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-colors"
             aria-describedby="level-description"
           >
@@ -47,33 +39,25 @@ const ProgramForm: React.FC<ProgramFormProps> = ({ onSubmit, isLoading }) => {
               </option>
             ))}
           </select>
-          {/* Example of aria-describedby if there was a visible description element */}
-          {/* <p id="level-description" className="text-xs text-slate-500 mt-1">Kies het niveau dat het beste bij je past.</p> */}
         </div>
 
         <div>
-          <label htmlFor="distance" className="block text-sm font-medium text-slate-700 mb-1">
-            Jouw doelafstand:
-          </label>
+          <label htmlFor="distance" className="block text-sm font-medium text-slate-700 mb-1">Jouw doelafstand:</label>
           <select
             id="distance"
             name="distance"
             value={distance}
-            onChange={(e) => setDistance(e.target.value as RaceDistance)}
+            onChange={(e) => setDistance(e.target.value)}
             className="mt-1 block w-full py-3 px-4 border border-slate-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-colors"
           >
             {Object.values(RaceDistance).map((dist) => (
-              <option key={dist} value={dist}>
-                {dist}
-              </option>
+              <option key={dist} value={dist}>{dist}</option>
             ))}
           </select>
         </div>
 
         <div>
-          <label htmlFor="trainingDays" className="block text-sm font-medium text-slate-700 mb-1">
-            Gewenst aantal trainingsdagen per week:
-          </label>
+          <label htmlFor="trainingDays" className="block text-sm font-medium text-slate-700 mb-1">Gewenst aantal trainingsdagen per week:</label>
           <select
             id="trainingDays"
             name="trainingDays"
@@ -81,13 +65,11 @@ const ProgramForm: React.FC<ProgramFormProps> = ({ onSubmit, isLoading }) => {
             onChange={(e) => setPreferredTrainingDays(parseInt(e.target.value, 10))}
             className="mt-1 block w-full py-3 px-4 border border-slate-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-colors"
           >
-            {[3, 4, 5, 6].map((days) => (
-              <option key={days} value={days}>
-                {days} dagen
-              </option>
+            {[3,4,5,6].map((days) => (
+              <option key={days} value={days}>{days} dagen</option>
             ))}
           </select>
-           <p className="text-xs text-slate-500 mt-1">Het schema probeert dit aantal aan te houden, maar kan afwijken op basis van je niveau en doel.</p>
+          <p className="text-xs text-slate-500 mt-1">Het schema probeert dit aantal aan te houden, maar kan afwijken op basis van je niveau en doel.</p>
         </div>
       </div>
 

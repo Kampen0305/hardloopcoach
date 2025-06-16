@@ -1,14 +1,8 @@
-# Run and deploy your AI Studio app
+# Hardloopschema Generator
 
-This contains everything you need to run your app locally.
+Deze versie gebruikt geen bundelstap of Babel.  Open eenvoudigweg `index.html`
+in een moderne browser om de applicatie te gebruiken. Zorg dat de omgeving het
+internet kan bereiken zodat de externe modules uit de importmap geladen worden.
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Voor het genereren van schema's heb je nog steeds een geldige `GEMINI_API_KEY`
+nodig. Deze wordt vanuit `process.env` gelezen indien beschikbaar.
