@@ -1,0 +1,6 @@
+{
+  "name": "Hardloopschema Generator",
+  "description": "Een webapplicatie die gepersonaliseerde hardloopschema's genereert voor lopers van elk niveau, van 5 km tot de marathon, met gedetailleerde trainingsuitleg.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
