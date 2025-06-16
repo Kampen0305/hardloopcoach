@@ -6,15 +6,15 @@ import ProgramForm from './components/ProgramForm';
 import ScheduleDisplay from './components/ScheduleDisplay';
 import LoadingSpinner from './components/LoadingSpinner';
 import ErrorMessage from './components/ErrorMessage';
-import { RunningLevel, RaceDistance, TrainingProgram } from './types';
+import { RunningLevel, RaceDistance } from './types';
 import { generateRunningProgram } from './services/geminiService';
 
-const App: React.FC = () => {
-  const [trainingProgram, setTrainingProgram] = useState<TrainingProgram | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+const App = () => {
+  const [trainingProgram, setTrainingProgram] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleFormSubmit = useCallback(async (level: RunningLevel, distance: RaceDistance, preferredTrainingDays: number) => {
+  const handleFormSubmit = useCallback(async (level, distance, preferredTrainingDays) => {
     setIsLoading(true);
     setError(null);
     setTrainingProgram(null); 
